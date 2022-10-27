@@ -77,7 +77,7 @@ namespace GraphQLTracker.Pipelines
         {
             var contentEditorWarning = args.Add();
             contentEditorWarning.Title = "GraphQL";
-            contentEditorWarning.Text = "Item requested by GraphQL on: " + date.ToString("dd/MM/yyyy HH:mm:ss");
+            contentEditorWarning.Text = "Item requested by GraphQL on: " + date.ToString("MM/dd/yyyy h:mm tt");
         }
     }
 }
