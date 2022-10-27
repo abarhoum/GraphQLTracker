@@ -51,10 +51,11 @@ namespace GraphQLTracker.Pipelines
         }
         private void UpdateItem(GraphQLItem graphQLItem, GetContentEditorWarningsArgs args)
         {
-            Sitecore.Data.Database master = args.Item.Database;
+            //Sitecore.Data.Database master = args.Item.Database;
 
-            Sitecore.Data.Items.Item item = master.GetItem(graphQLItem.itemId);
+            //Sitecore.Data.Items.Item item = master.GetItem(graphQLItem.itemId);
             // using SecurityDisabler for POC but userswitcher should be used instead.
+            var item = args.Item;
             using (new Sitecore.SecurityModel.SecurityDisabler())
             {
                 item.Editing.BeginEdit();
@@ -71,6 +72,7 @@ namespace GraphQLTracker.Pipelines
                 {
                     item.Editing.CancelEdit();
                 }
+              
             }
         }
         private void PrintWarningMessage(DateTime date, GetContentEditorWarningsArgs args)
