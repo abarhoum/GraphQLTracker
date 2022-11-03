@@ -17,6 +17,7 @@ namespace GraphQLTracker.Pipelines
         /// <param name="args"></param>
         public void Process(GetContentEditorWarningsArgs args)
         {
+          
             if (args.Item == null) return;
 
             if (args.Item.Fields["Requested Date"] == null)
@@ -80,6 +81,7 @@ namespace GraphQLTracker.Pipelines
             var contentEditorWarning = args.Add();
             contentEditorWarning.Title = "GraphQL";
             contentEditorWarning.Text = "Item requested by GraphQL on: " + date.ToString("MM/dd/yyyy h:mm tt");
+            contentEditorWarning.Icon = "/sitecore/shell/themes/standard/Images/information.png";
         }
     }
 }
